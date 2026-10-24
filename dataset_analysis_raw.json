@@ -1,0 +1,233 @@
+{
+  "shape": [
+    207360,
+    16
+  ],
+  "columns": [
+    "timestamp",
+    "node_id",
+    "pressure_bar_g",
+    "flow_mmscmd",
+    "gas_temp_c",
+    "vibration_mm_s_rms",
+    "ultrasonic_db_rel",
+    "gas_lel_pct",
+    "limit_alarm",
+    "label",
+    "fault_type",
+    "fault_size_pct",
+    "event_id",
+    "event_kind",
+    "s_since_onset",
+    "split"
+  ],
+  "dtypes": {
+    "timestamp": "str",
+    "node_id": "str",
+    "pressure_bar_g": "float64",
+    "flow_mmscmd": "float64",
+    "gas_temp_c": "float64",
+    "vibration_mm_s_rms": "float64",
+    "ultrasonic_db_rel": "float64",
+    "gas_lel_pct": "float64",
+    "limit_alarm": "int64",
+    "label": "int64",
+    "fault_type": "str",
+    "fault_size_pct": "float64",
+    "event_id": "str",
+    "event_kind": "str",
+    "s_since_onset": "float64",
+    "split": "str"
+  },
+  "missing_values": {
+    "timestamp": 0,
+    "node_id": 0,
+    "pressure_bar_g": 275,
+    "flow_mmscmd": 280,
+    "gas_temp_c": 294,
+    "vibration_mm_s_rms": 0,
+    "ultrasonic_db_rel": 0,
+    "gas_lel_pct": 361,
+    "limit_alarm": 0,
+    "label": 0,
+    "fault_type": 0,
+    "fault_size_pct": 0,
+    "event_id": 73151,
+    "event_kind": 73151,
+    "s_since_onset": 73151,
+    "split": 0
+  },
+  "duplicates": 0,
+  "label_counts": {
+    "0": 105071,
+    "2": 82671,
+    "1": 19618
+  },
+  "fault_type_counts": {
+    "none": 105071,
+    "leak": 58915,
+    "blockage": 43374
+  },
+  "split_counts": {
+    "train": 146377,
+    "val": 30820,
+    "test": 30163
+  },
+  "node_id_counts": {
+    "GT-01": 69120,
+    "GT-02": 69120,
+    "GT-03": 69120
+  },
+  "event_kind_counts": {
+    "normal": 73151,
+    "leak": 58915,
+    "blockage": 43374,
+    "demand_step": 29870,
+    "sensor_fault": 2050
+  },
+  "crosstab_label_fault": {
+    "blockage": {
+      "0": 0,
+      "1": 8412,
+      "2": 34962
+    },
+    "leak": {
+      "0": 0,
+      "1": 11206,
+      "2": 47709
+    },
+    "none": {
+      "0": 105071,
+      "1": 0,
+      "2": 0
+    }
+  },
+  "sensor_summary": {
+    "pressure_bar_g": {
+      "mean": 56.10942339618996,
+      "std": 3.523178879901156,
+      "min": 40.329,
+      "25%": 54.891,
+      "50%": 55.776,
+      "75%": 56.882,
+      "max": 97.46
+    },
+    "flow_mmscmd": {
+      "mean": 9.409447232953449,
+      "std": 1.9494120717394514,
+      "min": 2.311,
+      "25%": 8.593,
+      "50%": 9.821,
+      "75%": 10.671,
+      "max": 19.463
+    },
+    "gas_temp_c": {
+      "mean": 17.93566365313475,
+      "std": 2.434068456233457,
+      "min": 9.806,
+      "25%": 15.898249999999999,
+      "50%": 17.94,
+      "75%": 20.084,
+      "max": 61.133
+    },
+    "vibration_mm_s_rms": {
+      "mean": 2.455440967399691,
+      "std": 1.0284967265604756,
+      "min": 1.405,
+      "25%": 1.799,
+      "50%": 1.925,
+      "75%": 2.842,
+      "max": 6.555
+    },
+    "ultrasonic_db_rel": {
+      "mean": 4.678293701774691,
+      "std": 7.336431873084656,
+      "min": -3.969,
+      "25%": -0.081,
+      "50%": 0.962,
+      "75%": 7.762,
+      "max": 31.664
+    },
+    "gas_lel_pct": {
+      "mean": 1.5069147580423095,
+      "std": 3.9888565961114724,
+      "min": 0.0,
+      "25%": 0.129,
+      "50%": 0.43,
+      "75%": 0.872,
+      "max": 41.424
+    }
+  },
+  "by_fault_type": {
+    "blockage": {
+      "pressure_bar_g": 60.461348595933046,
+      "flow_mmscmd": 7.022399432839949,
+      "gas_temp_c": 19.07485666528335,
+      "vibration_mm_s_rms": 3.2668555586295938,
+      "ultrasonic_db_rel": 5.502036680960945,
+      "gas_lel_pct": 0.35856213399732556
+    },
+    "leak": {
+      "pressure_bar_g": 53.510843011117714,
+      "flow_mmscmd": 9.582184570992107,
+      "gas_temp_c": 16.891181278112537,
+      "vibration_mm_s_rms": 2.984474632945769,
+      "ultrasonic_db_rel": 12.200099787829924,
+      "gas_lel_pct": 4.387125163370958
+    },
+    "none": {
+      "pressure_bar_g": 55.76909513721898,
+      "flow_mmscmd": 10.300353809010316,
+      "gas_temp_c": 18.0513791385514,
+      "vibration_mm_s_rms": 1.8238459993718534,
+      "ultrasonic_db_rel": 0.12064950366894765,
+      "gas_lel_pct": 0.3620484671951103
+    }
+  },
+  "by_label": {
+    "0": {
+      "pressure_bar_g": 55.76909513721898,
+      "flow_mmscmd": 10.300353809010316,
+      "gas_temp_c": 18.0513791385514,
+      "vibration_mm_s_rms": 1.8238459993718534,
+      "ultrasonic_db_rel": 0.12064950366894765,
+      "gas_lel_pct": 0.3620484671951103
+    },
+    "1": {
+      "pressure_bar_g": 56.2116898256703,
+      "flow_mmscmd": 9.431967376898765,
+      "gas_temp_c": 17.90702370272199,
+      "vibration_mm_s_rms": 2.263442858599246,
+      "ultrasonic_db_rel": 3.3236238658374964,
+      "gas_lel_pct": 1.002031144866959
+    },
+    "2": {
+      "pressure_bar_g": 56.5165646841093,
+      "flow_mmscmd": 8.274819719127628,
+      "gas_temp_c": 17.795802482127954,
+      "vibration_mm_s_rms": 3.303730377036688,
+      "ultrasonic_db_rel": 10.792313689201775,
+      "gas_lel_pct": 3.0767972565954205
+    }
+  },
+  "timestamp_min": "2026-01-01 00:00:00",
+  "timestamp_max": "2026-01-04 23:59:55",
+  "total_duration_hours": 95.99861111111112,
+  "sample_steps": {
+    "GT-01": {
+      "mode_seconds": 5.0,
+      "min_seconds": 5.0,
+      "max_seconds": 5.0
+    },
+    "GT-02": {
+      "mode_seconds": 5.0,
+      "min_seconds": 5.0,
+      "max_seconds": 5.0
+    },
+    "GT-03": {
+      "mode_seconds": 5.0,
+      "min_seconds": 5.0,
+      "max_seconds": 5.0
+    }
+  }
+}
