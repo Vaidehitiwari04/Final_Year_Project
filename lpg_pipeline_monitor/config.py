@@ -31,7 +31,7 @@ SENSOR_LABELS = {
 N_FEATURES = len(SENSOR_COLS)
 
 # ── Sequence / Window settings ────────────────────────────────────────────────
-SEQ_LEN     = 10    # 10 × 5 s = 50-second sliding window
+SEQ_LEN     = 12    # 12 × 5 s = 60-second sliding window
 STEP_SIZE   = 1     # stride for sliding window
 
 # ── Target encodings ──────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ N_FAULT_CLASSES   = 3
 
 SEVERITY_MAP    = {0: 'Normal',  1: 'Warning',  2: 'Danger'}
 SEVERITY_INV    = {0: 'Normal',  1: 'Warning',  2: 'Danger'}
-SEVERITY_COLORS = {0: '#22c55e', 1: '#f59e0b', 2: '#ef4444'}
+SEVERITY_COLORS = {0: '#16a34a', 1: '#d97706', 2: '#dc2626'}
 N_LABEL_CLASSES = 3
 
 # ── Training hyper-parameters ─────────────────────────────────────────────────
@@ -57,7 +57,8 @@ DATA_CSV     = 'data/pipeline_training_data.csv'
 SPLITS_DIR   = 'data/splits'
 MODELS_DIR   = 'models'
 RESULTS_DIR  = 'results'
-SCALER_PATH  = 'models/scaler.pkl'
-MODEL_PATH   = 'models/best_model.keras'
+SCALER_PATH  = 'models/scaler.joblib'
+MODEL_PATH   = 'models/best_model.joblib'
 HISTORY_PATH = 'results/training_history.json'
 REPORT_PATH  = 'results/evaluation_report.json'
+

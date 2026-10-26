@@ -99,15 +99,15 @@ The dataset contains a pre-partitioned `split` column structured specifically at
 
 ---
 
-## 6. Suitability for CNN-LSTM Modeling
+## 6. Suitability for Classical Machine Learning Modeling
 
 * **Time-Series Integrity**: Yes. The dataset consists of chronological sensor readings spaced evenly at 5.0-second intervals per monitoring node.
 * **Temporal Dynamics**: Pipeline hydraulic transitions (pressure wave propagation, acoustic bursts, mass balance decay) unfold over tens of seconds.
-* **CNN-LSTM Architecture Justification**:
-  1. **1D-CNN Layer**: Captures local temporal feature patterns and inter-sensor cross-correlations across short sliding windows (e.g., negative pressure wave steepness $\frac{dP}{dt}$, simultaneous acoustic surge).
-  2. **LSTM Layer**: Learns the longer-term sequential trajectory, distinguishing transient demand changes (which stabilize) from progressive leaks or blockages (which persist or escalate).
-  3. **Dense Classification Head**: Outputs predicted probabilities across fault categories and maps them to alert levels (`NORMAL`, `WARNING`, `DANGER`).
+* **Classical ML Architecture Justification**:
+  1. **Physics-Informed Feature Engineering**: Explicit calculation of rolling statistics (mean, std, least-squares slope) and flow-compensated residuals ($P, V, U$ minus empirical flow regression on healthy data) extracts the exact hydraulic invariants ($P \propto f(Q)$) without requiring deep recurrent networks to learn them from noisy signals.
+  2. **Gradient Boosted Decision Trees (HistGradientBoosting / Random Forest)**: Superior performance on tabular and windowed time-series features without overfitting to specific node noise baselines.
+  3. **Edge Feasibility (ESP32 / Microcontrollers)**: Inference requires only ~15 ms (or microsecond-level C array execution) with tiny memory footprint (~1.1 MB vs. multi-megabyte neural runtimes that exceed ESP32 internal SRAM).
 * **Sequence Window Configuration**:
-  - Sequence Length: $T = 10$ time steps ($10 \times 5\text{ s} = 50\text{ seconds}$ sliding observation window).
-  - Multi-sensor features: 6 input channels (`pressure_bar_g`, `flow_mmscmd`, `gas_temp_c`, `vibration_mm_s_rms`, `ultrasonic_db_rel`, `gas_lel_pct`).
-  - Sequence Generation Rule: Sequences are generated strictly within individual events and nodes, preventing sequences from crossing partition or event boundaries.
+  - Window Length: $W = 12$ time steps ($12 \times 5\text{ s} = 60\text{ seconds}$ sliding observation window).
+  - Multi-sensor features: 6 input channels (`pressure_bar_g`, `flow_mmscmd`, `gas_temp_c`, `vibration_mm_s_rms`, `ultrasonic_db_rel`, `gas_lel_pct`). Total 39 non-leaking features.
+  - Strict leakage prevention: No future lookahead in feature computation; forward/backward imputation per node.

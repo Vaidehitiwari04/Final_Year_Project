@@ -1,0 +1,17 @@
+Metric,Value
+Test Accuracy,0.9244
+Test Macro-F1,0.9206
+CNN-LSTM Baseline Accuracy (Old),0.6804
+CNN-LSTM Baseline Macro-F1 (Old),0.6828
+Static SCADA Limit Alarm Accuracy,0.5710
+Rate-of-Change Rule Accuracy,0.5488
+Median Detection Delay (s),96.0
+Median Lead Time Before SCADA Trip (s),512.5
+Danger Predictor Brier Score,0.0326
+False Alarms / Day (Plain Healthy),342.74
+False Alarms / Day (Demand Steps),52.88
+False Alarms / Day (Sensor Faults),710.14
+Stress Test Noise x2 Macro-F1,0.9079
+Stress Test 5% Dropouts Macro-F1,0.9185
+Model File Size (KB),1144.7
+Inference Latency (ms/pred),14.833
